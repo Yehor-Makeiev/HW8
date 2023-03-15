@@ -1,30 +1,31 @@
 from datetime import datetime
-from pprint import pprint
+from collections import defaultdict
 
 
 def get_birthdays_per_week(users):
-    birthday_boy = {}
+    birthday_boy = defaultdict(list)
+    
     day_now = datetime.now()
     print(day_now)
     
-    for b in users:
-        for i, v in b.items():
+    for d in users:
+        for name, bd in dict(d).items():
+                print(name, bd)
+
+        
            
-            if v.month == day_now.month and v.day == day_now.day:
-                print(v)
-                birthday_boy.update({v.strftime("%A"): str(i) })
             
-    pass
+    
 
 
-users = [{"Yehor": datetime(2023, 3, 15)},
-         {"Katya": datetime(1991, 4, 6)},
-         {"Stas": datetime(1991, 9, 20)},
-         {"4ort": datetime(1995, 3, 17)},
-         {"Loh": datetime(2000, 3, 15)},
-         {"Popey": datetime(2020, 3, 18)},
-         {"Hren": datetime(2018, 3, 20)},
-         {"kozel": datetime(2016, 3, 21)}]
+users = [{"name": "Yehor", "birthday": "1991, 3, 15"},
+         {"name": "Vasyl", "birthday": "1992, 3, 16"},
+         {"name": "Petya", "birthday": "1993, 3, 15"},
+         {"name": "Kolya", "birthday": "1994, 3, 15"},
+         {"name": "Stepan", "birthday": "1995, 3, 15"},
+         {"name": "Petro", "birthday": "1996, 3, 15"},
+         {"name": "Stas", "birthday": "1997, 3, 15"},
+         {"name": "Ivan", "birthday": "1998, 3, 15"}]
 
 if __name__ == "__main__":
     get_birthdays_per_week(users)
