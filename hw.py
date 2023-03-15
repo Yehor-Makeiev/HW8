@@ -12,6 +12,7 @@ def get_birthdays_per_week(users):
            
             if v.month == day_now.month and v.day == day_now.day:
                 print(v)
+                birthday_boy.update({v.strftime("%A"): str(i) })
             
     pass
 
